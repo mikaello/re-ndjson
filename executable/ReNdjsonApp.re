@@ -1,0 +1,1 @@
+ReNdjson.Util.foo();

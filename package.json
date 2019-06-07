@@ -1,0 +1,48 @@
+{
+  "name": "re-ndjson",
+  "version": "0.0.0",
+  "description": "My Project",
+  "esy": {
+    "build": "pesy",
+    "release": {
+      "releasedBinaries": [
+        "ReNdjsonApp.exe"
+      ]
+    }
+  },
+  "buildDirs": {
+    "test": {
+      "require": [
+        "re-ndjson.lib"
+      ],
+      "main": "TestReNdjson",
+      "name": "TestReNdjson.exe"
+    },
+    "library": {
+      "name": "re-ndjson.lib",
+      "namespace": "ReNdjson"
+    },
+    "executable": {
+      "require": [
+        "re-ndjson.lib"
+      ],
+      "main": "ReNdjsonApp",
+      "name": "ReNdjsonApp.exe"
+    }
+  },
+  "scripts": {
+    "pesy": "bash -c 'env PESY_MODE=update pesy'",
+    "run": "esy x ReNdjsonApp.exe",
+    "test": "esy x TestReNdjson.exe"
+  },
+  "dependencies": {
+    "@opam/dune": ">=1.6.0",
+    "@esy-ocaml/reason": "*",
+    "refmterr": "*",
+    "ocaml": "^4.4.0",
+    "pesy": "*"
+  },
+  "devDependencies": {
+    "@opam/merlin": "*"
+  }
+}

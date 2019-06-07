@@ -7,9 +7,12 @@
 *.cmx
 *.cmxs
 *.cmxa
+*.install
 
 # ocamlbuild working directory
 _build/
+_release
+_esy/
 
 # ocamlbuild targets
 *.byte
@@ -21,3 +24,12 @@ setup.log
 
 # Merlin configuring file for Vim and Emacs
 .merlin
+
+# NPM / Yarn
+npm-debug.log
+yarn-error.log
+node_modules
+node_modules/
+
+# OSX
+.DS_Store
