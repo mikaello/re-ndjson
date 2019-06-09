@@ -1,5 +1,5 @@
 {
-  "checksum": "89818303ff6b8304f1f2daf1cb6d063b",
+  "checksum": "aba708fc557abddeda95e7b18ea12067",
   "root": "re-ndjson@link-dev:./package.json",
   "node": {
     "refmterr@3.1.10@d41d8cd9": {
@@ -32,6 +32,7 @@
       "dependencies": [
         "refmterr@3.1.10@d41d8cd9", "pesy@0.4.1@d41d8cd9",
         "ocaml@4.7.1004@d41d8cd9", "@opam/dune@opam:1.10.0@b15ce221",
+        "@opam/cmdliner@opam:1.0.3@96d31520",
         "@esy-ocaml/reason@3.4.0@d41d8cd9"
       ],
       "devDependencies": [ "@opam/merlin@opam:3.3.0@d95163ef" ]
@@ -480,6 +481,28 @@
       "overrides": [],
       "dependencies": [ "@esy-ocaml/substs@0.0.1@d41d8cd9" ],
       "devDependencies": []
+    },
+    "@opam/cmdliner@opam:1.0.3@96d31520": {
+      "id": "@opam/cmdliner@opam:1.0.3@96d31520",
+      "name": "@opam/cmdliner",
+      "version": "opam:1.0.3",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://opam.ocaml.org/cache/md5/36/3674ad01d4445424105d33818c78fba8#md5:3674ad01d4445424105d33818c78fba8",
+          "archive:http://erratique.ch/software/cmdliner/releases/cmdliner-1.0.3.tbz#md5:3674ad01d4445424105d33818c78fba8"
+        ],
+        "opam": {
+          "name": "cmdliner",
+          "version": "1.0.3",
+          "path": "esy.lock/opam/cmdliner.1.0.3"
+        }
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.7.1004@d41d8cd9", "@esy-ocaml/substs@0.0.1@d41d8cd9"
+      ],
+      "devDependencies": [ "ocaml@4.7.1004@d41d8cd9" ]
     },
     "@opam/biniou@opam:1.2.0@c8516f18": {
       "id": "@opam/biniou@opam:1.2.0@c8516f18",

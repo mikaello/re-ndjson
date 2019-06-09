@@ -24,6 +24,7 @@
     },
     "executable": {
       "require": [
+        "cmdliner",
         "re-ndjson.lib"
       ],
       "main": "ReNdjsonApp",
@@ -36,11 +37,12 @@
     "test": "esy x TestReNdjson.exe"
   },
   "dependencies": {
-    "@opam/dune": ">=1.6.0",
     "@esy-ocaml/reason": "*",
-    "refmterr": "*",
+    "@opam/cmdliner": "1.0.3",
+    "@opam/dune": ">=1.6.0",
     "ocaml": "^4.4.0",
-    "pesy": "*"
+    "pesy": "*",
+    "refmterr": "*"
   },
   "devDependencies": {
     "@opam/merlin": "*"
