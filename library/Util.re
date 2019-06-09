@@ -1,4 +1,4 @@
-let foo = () => print_endline("Ndjson is starting");
+let one = () => 1;
 
 let print_results = strings => List.map(l => print_endline(l), strings);
 let print_list = strings =>

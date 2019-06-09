@@ -7,5 +7,5 @@
    (name TestReNdjson)  ;  From package.json main field
    ; The name of the executable (runnable via esy x TestReNdjson.exe) 
    (public_name TestReNdjson.exe)  ;  From package.json name field
-   (libraries  re-ndjson.lib ) ;  From package.json require field (array of strings)
+   (libraries  rely.lib re-ndjson.lib ) ;  From package.json require field (array of strings)
 )

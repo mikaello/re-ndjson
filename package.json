@@ -13,6 +13,7 @@
   "buildDirs": {
     "test": {
       "require": [
+        "rely.lib",
         "re-ndjson.lib"
       ],
       "main": "TestReNdjson",
@@ -34,12 +35,14 @@
   "scripts": {
     "pesy": "bash -c 'env PESY_MODE=update pesy'",
     "run": "esy x ReNdjsonApp.exe",
-    "test": "esy x TestReNdjson.exe"
+    "test": "esy x TestReNdjson.exe",
+    "test:watch": "watchman-make -p 'executable/**/*.re' 'library/**/*.re' 'test/**/*.re' --make=esy -t test --settle 1"
   },
   "dependencies": {
     "@esy-ocaml/reason": "*",
     "@opam/cmdliner": "1.0.3",
     "@opam/dune": ">=1.6.0",
+    "@reason-native/rely": "^2.2.0",
     "ocaml": "^4.4.0",
     "pesy": "*",
     "refmterr": "*"
