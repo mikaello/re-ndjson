@@ -1,7 +1,13 @@
 open Cmdliner;
 let version = "1.0.0";
 
-let files = Arg.(value & pos_all(non_dir_file, []) & info([], ~docv="FILE"));
+let unknownFileType = file =>
+  ReNdjson.Util.convertInput(Unknown(file)) |> print_endline;
+
+let file =
+  Arg.(
+    required & pos(0, some(non_dir_file), None) & info([], ~docv="FILE")
+  );
 
 let cmd = {
   let doc = "convert to/from NDJSON to/from JSON";
@@ -20,7 +26,7 @@ let cmd = {
   ];
 
   (
-    Term.(const(ReNdjson.Util.print_results) $ files),
+    Term.(const(unknownFileType) $ file),
     Term.info("ndjson", ~version, ~doc, ~exits=Term.default_exits, ~man),
   );
 };
