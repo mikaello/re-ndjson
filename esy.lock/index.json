@@ -1,5 +1,5 @@
 {
-  "checksum": "0a90b4db375459ebc49e8d8c177dc861",
+  "checksum": "7d52ee741fc1e7a51abeebbcad354fdc",
   "root": "re-ndjson@link-dev:./package.json",
   "node": {
     "refmterr@3.1.10@d41d8cd9": {
@@ -32,6 +32,7 @@
       "dependencies": [
         "refmterr@3.1.10@d41d8cd9", "pesy@0.4.1@d41d8cd9",
         "ocaml@4.7.1004@d41d8cd9", "@reason-native/rely@2.2.0@d41d8cd9",
+        "@opam/yojson@opam:1.7.0@2d92307e",
         "@opam/dune@opam:1.10.0@b15ce221",
         "@opam/cmdliner@opam:1.0.3@96d31520",
         "@esy-ocaml/reason@3.4.0@d41d8cd9"

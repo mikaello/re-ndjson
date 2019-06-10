@@ -20,6 +20,9 @@
       "name": "TestReNdjson.exe"
     },
     "library": {
+      "require": [
+        "yojson"
+      ],
       "name": "re-ndjson.lib",
       "namespace": "ReNdjson"
     },
@@ -42,6 +45,7 @@
     "@esy-ocaml/reason": "*",
     "@opam/cmdliner": "1.0.3",
     "@opam/dune": ">=1.6.0",
+    "@opam/yojson": "1.7.0",
     "@reason-native/rely": "^2.2.0",
     "ocaml": "^4.4.0",
     "pesy": "*",
