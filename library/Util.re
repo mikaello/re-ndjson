@@ -1,5 +1,3 @@
-let one = () => 1;
-
 type convertMethod =
   | NdjsonToJson(string)
   | JsonToNdjson(string)
