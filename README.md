@@ -1,6 +1,6 @@
 # re-ndjson
 
-Convert to and from NDJSON
+Convert to and from NDJSON. If no option is given, the tool will infer what type of input it got and convert to the other.
 
 ## Usage
 
