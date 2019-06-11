@@ -13,6 +13,7 @@
   "buildDirs": {
     "test": {
       "require": [
+        "yojson",
         "rely.lib",
         "re-ndjson.lib"
       ],
