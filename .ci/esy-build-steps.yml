@@ -14,8 +14,10 @@ steps:
     displayName: 'esy build'
   - script: esy test
     displayName: 'esy test'
-  - script: esy x ReNdjsonApp.exe
-    displayName: 'Run the main binary'
+  - script: esy x ReNdjsonApp.exe ./test/test.json
+    displayName: 'Run the main binary with JSON'
+  - script: esy x ReNdjsonApp.exe ./test/test.ndjson
+    displayName: 'Run the main binary with NDJSON'
   - script: esy ls-libs
     continueOnError: true
     displayName: 'Show all libraries including this package lib'
