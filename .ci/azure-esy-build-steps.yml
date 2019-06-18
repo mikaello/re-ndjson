@@ -18,9 +18,9 @@ steps:
     displayName: 'Run the main binary with JSON'
   - script: esy x ReNdjsonApp.exe ./test/test.ndjson
     displayName: 'Run the main binary with NDJSON'
-  - script: esy ls-libs
-    continueOnError: true
-    displayName: 'Show all libraries including this package lib'
+  #- script: esy ls-libs
+  #  continueOnError: 'true'
+  #  displayName: 'Show all libraries including this package lib'
   - script: esy release
     displayName: 'Test Creation of Prebuilt Binary Releases'
-    continueOnError: true
+    continueOnError: 'true'
