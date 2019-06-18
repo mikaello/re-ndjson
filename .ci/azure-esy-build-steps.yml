@@ -24,3 +24,12 @@ steps:
   - script: esy release
     displayName: 'Test Creation of Prebuilt Binary Releases'
     continueOnError: 'true'
+  - task: GithubRelease@0
+    displayName: 'Create GitHub Release'
+    inputs:
+      gitHubConnection: mikaello
+      repositoryName: mikaello/re-ndjson
+      tagSource: manual
+      tag: $(Build.BuildNumber)
+      assets: |
+         $(Build.ArtifactStagingDirectory)/_release/bin/*.exe
