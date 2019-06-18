@@ -30,12 +30,16 @@ let stdin_or_non_dir_file = {
   (parse, pp_print);
 };
 
-let file =
+let file = {
+  let doc =
+    "$(i,FILE) must either be a file on your computer, or it must be "
+    ++ "'-' to take input from stdin";
   Arg.(
     required
     & pos(0, some(stdin_or_non_dir_file), None)
-    & info([], ~docv="FILE")
+    & info([], ~doc, ~docv="FILE")
   );
+};
 
 let convertFlag = {
   let doc = "Convert from JSON file";
