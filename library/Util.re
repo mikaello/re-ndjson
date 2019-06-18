@@ -25,8 +25,7 @@ let convertUnknown = inputFile => {
   | exception (Yojson.Json_error(_msg)) =>
     Pervasives.close_in(file);
     convertJsonToNdjson(inputFile);
-  | `Assoc(_) as ndjson =>
-    NdjsonUtil.ndjsonToJson(~firstLine=Some(ndjson), file)
+  | `Assoc(_) as ndjson => NdjsonUtil.ndjsonToJson(~firstLine=ndjson, file)
   | json =>
     Pervasives.close_in(file);
     convertJsonToNdjson(inputFile);

@@ -3,7 +3,7 @@ let nextLine = ndjsonChannel => {
   | line =>
     Some(
       switch (Yojson.Basic.from_string(line)) {
-      | exception (Yojson.Json_error(msg)) =>
+      | exception (Yojson.Json_error(_msg)) =>
         Yojson.Basic.from_string(
           Printf.sprintf({|{error: "%s"}|}, "failed parsing"),
         )
@@ -32,7 +32,7 @@ let toJsonArrayFromList = listOfJson => {
   Yojson.Basic.from_string("[" ++ listAsString ++ "]");
 };
 
-let ndjsonToJson = (~firstLine=None, ndjsonChannel) => {
+let ndjsonToJson = (~firstLine=?, ndjsonChannel) => {
   let json =
     switch (firstLine) {
     | Some(line) => buildJson(line, ndjsonChannel)
