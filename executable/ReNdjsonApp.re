@@ -16,9 +16,25 @@ let unknownFileType = (flagType, file) =>
   )
   |> print_endline;
 
+/** Custom converter to accept '-' as valid filename (for stdin) */
+let stdin_or_non_dir_file = {
+  let (parse as arg_parse, pp_print) = Arg.non_dir_file;
+
+  let parse = s =>
+    if (s == "-") {
+      `Ok(s);
+    } else {
+      arg_parse(s);
+    };
+
+  (parse, pp_print);
+};
+
 let file =
   Arg.(
-    required & pos(0, some(non_dir_file), None) & info([], ~docv="FILE")
+    required
+    & pos(0, some(stdin_or_non_dir_file), None)
+    & info([], ~docv="FILE")
   );
 
 let convertFlag = {
