@@ -9,17 +9,37 @@ type flagType =
 let unknownFileType = (flagType, file) =>
   (
     switch (flagType) {
-    | Unspecified => ReNdjson.Util.convertInput(Unknown(file))
-    | Json => ReNdjson.Util.convertInput(JsonToNdjson(file))
-    | Ndjson => ReNdjson.Util.convertInput(NdjsonToJson(file))
+    | Unspecified => ReNdjson.Util.convertInput(Unknown, file)
+    | Json => ReNdjson.Util.convertInput(JsonToNdjson, file)
+    | Ndjson => ReNdjson.Util.convertInput(NdjsonToJson, file)
     }
   )
   |> print_endline;
 
-let file =
+/** Custom converter to accept '-' as valid filename (for stdin) */
+let stdin_or_non_dir_file = {
+  let (parse as arg_parse, pp_print) = Arg.non_dir_file;
+
+  let parse = s =>
+    if (s == "-") {
+      `Ok(s);
+    } else {
+      arg_parse(s);
+    };
+
+  (parse, pp_print);
+};
+
+let file = {
+  let doc =
+    "$(i,FILE) must either be a file on your computer, or it must be "
+    ++ "'-' to take input from stdin";
   Arg.(
-    required & pos(0, some(non_dir_file), None) & info([], ~docv="FILE")
+    required
+    & pos(0, some(stdin_or_non_dir_file), None)
+    & info([], ~doc, ~docv="FILE")
   );
+};
 
 let convertFlag = {
   let doc = "Convert from JSON file";

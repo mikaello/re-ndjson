@@ -26,6 +26,11 @@ DESCRIPTION
        JSON format it will be converted to NDJSON. The result is printed to
        standard output.
 
+ARGUMENTS
+       FILE (required)
+           FILE must either be a file on your computer, or it must be '-' to
+           take input from stdin
+
 OPTIONS
        --help[=FMT] (default=auto)
            Show this help in format FMT. The value FMT must be one of `auto',
