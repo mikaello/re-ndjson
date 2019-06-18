@@ -9,9 +9,9 @@ type flagType =
 let unknownFileType = (flagType, file) =>
   (
     switch (flagType) {
-    | Unspecified => ReNdjson.Util.convertInput(Unknown(file))
-    | Json => ReNdjson.Util.convertInput(JsonToNdjson(file))
-    | Ndjson => ReNdjson.Util.convertInput(NdjsonToJson(file))
+    | Unspecified => ReNdjson.Util.convertInput(Unknown, file)
+    | Json => ReNdjson.Util.convertInput(JsonToNdjson, file)
+    | Ndjson => ReNdjson.Util.convertInput(NdjsonToJson, file)
     }
   )
   |> print_endline;

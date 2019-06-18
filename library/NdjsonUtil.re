@@ -43,6 +43,5 @@ let ndjsonToJson = (~firstLine=?, ndjsonChannel) => {
       }
     };
 
-  Pervasives.close_in(ndjsonChannel);
   json |> toJsonArrayFromList |> Yojson.Basic.pretty_to_string;
 };
