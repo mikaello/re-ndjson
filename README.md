@@ -1,5 +1,7 @@
 # re-ndjson
 
+[![Build Status](https://dev.azure.com/mikaeo/re-ndjson/_apis/build/status/mikaello.re-ndjson?branchName=master)](https://dev.azure.com/mikaeo/re-ndjson/_build/latest?definitionId=1&branchName=master)
+
 Convert to and from [NDJSON](https://en.wikipedia.org/wiki/JSON_streaming#Line-delimited_JSON)/JSON. If no option is given, the tool will infer what type of input it got and convert to the other.
 
 ## Usage
