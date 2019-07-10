@@ -21,18 +21,20 @@ let read_in_channel = (~startValue=?, input) => {
   };
 };
 
-let convertJsonToNdjson = (~firstLineJson=?, ~firstLine=?, input) => {
+type initialJson =
+  | CompleteJson(Yojson.Basic.t)
+  | IncompleteJson(string)
+  | NoInitialValue;
+
+let convertJsonToNdjson = (~initialValue=NoInitialValue, input) => {
   let json =
-    switch (firstLine) {
-    | Some(firstLine) =>
+    switch (initialValue) {
+    | IncompleteJson(firstLine) =>
       input
       |> read_in_channel(~startValue=firstLine)
       |> Yojson.Basic.from_string
-    | None =>
-      switch (firstLineJson) {
-      | Some(json) => json
-      | None => Yojson.Basic.from_channel(input)
-      }
+    | CompleteJson(json) => json
+    | NoInitialValue => Yojson.Basic.from_channel(input)
     };
 
   let listOfObjects = Yojson.Basic.Util.to_list(json);
@@ -45,9 +47,9 @@ let convertUnknown = input => {
 
   switch (Yojson.Basic.from_string(firstLine)) {
   | exception (Yojson.Json_error(_msg)) =>
-    convertJsonToNdjson(~firstLine, input)
+    convertJsonToNdjson(~initialValue=IncompleteJson(firstLine), input)
   | `Assoc(_) as ndjson => NdjsonUtil.ndjsonToJson(~firstLine=ndjson, input)
-  | json => convertJsonToNdjson(~firstLineJson=json, input)
+  | json => convertJsonToNdjson(~initialValue=CompleteJson(json), input)
   };
 };
 
