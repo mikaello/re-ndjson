@@ -88,3 +88,8 @@ $ echo "export PATH=\"$HOME/bin:$PATH\"" > ~/.bashrc
 ## Contribute
 
 The program is written in ReasonML and compiled to native. Feel free to open a PR or issue if you find something that could be better :-)
+
+## Alternatives
+
+* See [libraries section](http://ndjson.org/libraries.html) on ndjson.org
+* [jq](https://stedolan.github.io/jq/) handles NDJSON out of the box
